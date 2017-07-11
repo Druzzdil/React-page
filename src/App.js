@@ -10,6 +10,7 @@ import Menus from './menu';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
+
 injectTapEventPlugin();
 
 
@@ -20,7 +21,6 @@ export default class App extends Component {
         episodes: []
       }
       this.init = this.init.bind(this);
-      
   }
 
 componentDidMount() {
@@ -29,19 +29,27 @@ componentDidMount() {
 
 async init(){
     axios.get('http://swapi.co/api/planets/').then((res) =>{
-      this.setState({episodes: res.data.results});
-  });
+      let sorte = res.data.results.reverse();
+      this.setState({episodes: sorte});
+    }, (err)=>{
+        console.log(err, 'an error occured');
+    });
 };
 
+// soro(){
+//   sort(function(a, b) {
+//     var textA = a.DepartmentName.toUpperCase();
+//     var textB = b.DepartmentName.toUpperCase();
+//     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+// }
+
+
   render(){ 
-
       return (
-
         <div className="container">
           <h1>this is fine like hell</h1>
           <Home items={this.state.episodes}></Home>
         </div>
-
       );
     }
   }

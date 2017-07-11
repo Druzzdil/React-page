@@ -5,9 +5,15 @@ import Menus from './menu';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import App from './App';
-
+import _ from 'lodash';
 
 class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    // this.sort = this.sort.bind(this);
+}
+
   render () {
     return (
         <div className="home">
@@ -15,9 +21,12 @@ class Home extends React.Component {
               <div>
                 <Menus></Menus>
                     <ul>
-                        {this.props.items.map(function(keyName, keyIndex) {
-                            return <li key={keyIndex}>{keyName.name}</li>
-                            })
+                        {
+                            
+                            this.props.items.map(function(keyName, index) {
+                            return <li key={index}>{keyName.name}</li>
+                        })
+            
                         }
                     </ul>
               </div>
