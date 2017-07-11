@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Menus from './menu';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import App from './App';
 
 
 class Home extends React.Component {
@@ -13,7 +14,12 @@ class Home extends React.Component {
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
               <div>
                 <Menus></Menus>
-                <RaisedButton label="Default" />
+                    <ul>
+                        {this.props.items.map(function(keyName, keyIndex) {
+                            return <li key={keyIndex}>{keyName.name}</li>
+                            })
+                        }
+                    </ul>
               </div>
             </MuiThemeProvider>
         </div>

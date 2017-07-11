@@ -1,6 +1,6 @@
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import React, { Component } from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+// import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import About from './about';
 import Home from './Home';
@@ -9,8 +9,6 @@ import axios from 'axios';
 import Menus from './menu';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
-
 
 injectTapEventPlugin();
 
@@ -38,21 +36,12 @@ async init(){
   render(){ 
 
       return (
-      <Router>
+
         <div className="container">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-          </ul>
- 
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
+          <h1>this is fine like hell</h1>
+          <Home items={this.state.episodes}></Home>
         </div>
-      </Router>
+
       );
     }
   }
