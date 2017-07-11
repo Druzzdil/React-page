@@ -29,20 +29,17 @@ componentDidMount() {
 
 async init(){
     axios.get('http://swapi.co/api/planets/').then((res) =>{
-      let sorte = res.data.results.reverse();
+      let sorte = res.data.results;
+      sorte.sort(function(a, b) {
+        var textA = a.name;
+        var textB = b.name;
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      });
       this.setState({episodes: sorte});
     }, (err)=>{
         console.log(err, 'an error occured');
     });
 };
-
-// soro(){
-//   sort(function(a, b) {
-//     var textA = a.DepartmentName.toUpperCase();
-//     var textB = b.DepartmentName.toUpperCase();
-//     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-// }
-
 
   render(){ 
       return (
