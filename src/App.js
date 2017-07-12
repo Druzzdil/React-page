@@ -61,13 +61,13 @@ async init(){
                 <Link to="/About">About</Link>
               </li>
             </ul>
-      <HashRouter>
-        <div className="container">
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-        </div>
-      </HashRouter>
-            <Home items={this.state.episodes}></Home>
+            <HashRouter>
+              <div className="container">
+                <Route exact path="/" component={Home} />
+                <Route path="/about" component={About} />
+              </div>
+            </HashRouter>
+            <About items={this.state.episodes}></About>
           </div>
           </MuiThemeProvider>
         </div>

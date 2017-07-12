@@ -12,7 +12,6 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
-    // this.sort = this.sort.bind(this);
 }
 
   render () {
@@ -20,14 +19,7 @@ class Home extends React.Component {
         <div className="home">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
               <div>
-                                    <ul>
-                        { 
-                            this.props.items.map(function(keyName, index) {
-                            return <li key={index}>{keyName.name}</li>
-                        })
-            
-                        }
-                    </ul>
+                <h1>Umarłem</h1>
               </div>
             </MuiThemeProvider>
         </div>
