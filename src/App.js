@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import About from './about';
 import Home from './Home';
+import Form from './Form';
 import './App.css';
 import axios from 'axios';
 import Menus from './menu';
@@ -51,20 +52,15 @@ async init(){
         <div className="container">
           <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <div>
-            <h1>this is fine like hell</h1>
             <Menus></Menus>
             <ul>
-              <li>
-                <Link to="/Home">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About page</Link>
-              </li>
             </ul>
             <HashRouter>
               <div className="container">
                 <Route component={Home} />
                 <Route path="/About" component={() => <About items={this.state.episodes}/>} />
+                <Route path="/Form" component={Form} />
+                <Route path="/Home" component={Home} />
               </div>
             </HashRouter>
 
@@ -74,5 +70,7 @@ async init(){
       );
     }
   }
-
+              <li>
+                <Link to="/Home">Home</Link>
+              </li>
 

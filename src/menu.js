@@ -3,10 +3,16 @@ import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import {List, ListItem} from 'material-ui/List';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  HashRouter
+} from 'react-router-dom';
 
 const style = {
   display: 'inline-block',
-  margin: '16px 32px 16px 0',
+  margin: '0',
   width: '100%'
 };
 const flexContainer = {
@@ -21,17 +27,24 @@ const listitems = {
  textAlign: 'right',
  float: 'right'
 }
+const noSpace = {
+  margin: '0',
+  padding: '0'
+}
 
 const Menus = () => (
-  <div>
+  <div style={noSpace}>
     <Paper style={style}>
-      <Menu>
+      <Menu style={noSpace}>
           <List style={flexContainer}>
             <ListItem style={listitems}
-            primaryText="foo1"
+            primaryText="About" containerElement={<Link to="/About"/>}
             />
             <ListItem
-            primaryText="foo2"
+            primaryText="Contact Us" containerElement={<Link to="/Form"/>}
+            />
+            <ListItem
+            primaryText="HomePage" containerElement={<Link to="/Home"/>}
             />
         </List>
       </Menu>
