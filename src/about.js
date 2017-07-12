@@ -12,7 +12,14 @@ class About extends React.Component {
       <div className="about">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
               <div>
-                  <h3>dzien dobry bardzo</h3>
+                <h3>dzien dobry bardzo</h3>
+                <ul>
+                    { 
+                      this.props.items.map(function(keyName, index) {
+                        return <li key={index}>{keyName.name}</li>
+                      })
+                    }
+                </ul>
               </div>
             </MuiThemeProvider>
       </div>

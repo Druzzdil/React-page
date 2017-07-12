@@ -63,8 +63,8 @@ async init(){
             </ul>
             <HashRouter>
               <div className="container">
-                <Route component={() => <Home items={this.state.episodes}/>} />
-                <Route path="/About" component={About} />
+                <Route component={Home} />
+                <Route path="/About" component={() => <About items={this.state.episodes}/>} />
               </div>
             </HashRouter>
 
