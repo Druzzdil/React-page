@@ -15,11 +15,18 @@ class Home extends React.Component {
 }
 
   render () {
+      console.log(this.props.items, '+++++++++++++=-');
     return (
         <div className="home">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
               <div>
-                <h1>Umarłem</h1>
+                <ul>
+                    { 
+                      this.props.items.map(function(keyName, index) {
+                        return <li key={index}>{keyName.name}</li>
+                      })
+                    }
+                </ul>
               </div>
             </MuiThemeProvider>
         </div>
