@@ -9,7 +9,12 @@ import axios from 'axios';
 import Menus from './menu';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  HashRouter
+} from 'react-router-dom';
 
 injectTapEventPlugin();
 
@@ -31,11 +36,11 @@ async init(){
     axios.get('http://swapi.co/api/planets/').then((res) =>{
       let sorte = res.data.results;
       sorte.sort(function(a, b) {
-        var textA = a.name;
-        var textB = b.name;
+        let textA = a.name;
+        let textB = b.name;
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
       });
-      this.setState({episodes: sorte});
+    this.setState({episodes: sorte});
     }, (err)=>{
         console.log(err, 'an error occured');
     });
@@ -44,8 +49,27 @@ async init(){
   render(){ 
       return (
         <div className="container">
-          <h1>this is fine like hell</h1>
-          <Home items={this.state.episodes}></Home>
+          <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+          <div>
+            <h1>this is fine like hell</h1>
+            <Menus></Menus>
+            <ul>
+              <li>
+                <Link to="/Home">Home</Link>
+              </li>
+              <li>
+                <Link to="/About">About</Link>
+              </li>
+            </ul>
+      <HashRouter>
+        <div className="container">
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+        </div>
+      </HashRouter>
+            <Home items={this.state.episodes}></Home>
+          </div>
+          </MuiThemeProvider>
         </div>
       );
     }

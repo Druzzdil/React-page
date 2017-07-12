@@ -6,6 +6,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import App from './App';
 import _ from 'lodash';
+// import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 
 class Home extends React.Component {
     constructor(props) {
@@ -19,10 +20,8 @@ class Home extends React.Component {
         <div className="home">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
               <div>
-                <Menus></Menus>
-                    <ul>
-                        {
-                            
+                                    <ul>
+                        { 
                             this.props.items.map(function(keyName, index) {
                             return <li key={index}>{keyName.name}</li>
                         })

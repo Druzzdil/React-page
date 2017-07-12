@@ -35,12 +35,11 @@
 // console.log(n);
 // console.log(n instanceof newType);
 // console.log(n instanceof Type);
-
-
-
-// <ul>
-//     {this.state.episodes.map(function(keyName, keyIndex) {
-//     return <li key={keyIndex}>{keyName.name}</li>
-//     })
-//     }
-// </ul>
+                    // <ul>
+                    //     { 
+                    //         this.props.items.map(function(keyName, index) {
+                    //         return <li key={index}>{keyName.name}</li>
+                    //     })
+            
+                    //     }
+                    // </ul>
